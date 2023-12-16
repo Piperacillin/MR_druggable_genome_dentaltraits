@@ -9,14 +9,14 @@ Adapted from the original publication from a Mendelian randomization analysis fo
 1. Install the required tools
 
 ```bash
-bash ./mr_druggable_genome_pd/shell/installing_tools.sh
+bash ./mr_druggable_genome_dt/shell/installing_tools.sh
 ```
 
 
 2. Download/upload your QTL and disease GWAS data. eQTL data from the PsychENCODE and eQTLGen consortia can be accessed as shown below. If you are looking for a comprehensive list of pQTL data available, check out [this very helpful blog post](http://www.metabolomix.com/a-table-of-all-published-gwas-with-proteomics/).
 
 ```bash
-bash ./mr_druggable_genome_pd/shell/eqtl_data_download.sh
+bash ./mr_druggable_genome_dt/shell/eqtl_data_download.sh
 ```
 
 3. Select exposure data and outcome data.
@@ -45,7 +45,7 @@ echo "" > discovery_outcomes.txt
 
 4. Prepare the data for the Mendelian randomization analysis. Note: if you are using your own GWAS data you will need to edit these files and create appropriate `read_exposure_data` and `read_outcome_data` files
 ```bash
-bash ./mr_druggable_genome_pd/shell/06data_prep.sh
+bash ./mr_druggable_genome_dt/shell/06data_prep.sh
 ```
 
 5. Generate scripts that can be run in parallel
@@ -60,7 +60,7 @@ while read EXPOSURE_DATA; do
 
             while read DISCOVERY_OUTCOME; do
                     export DISCOVERY_OUTCOME=${DISCOVERY_OUTCOME}
-                    bash ./mr_druggable_genome_pd/shell/07generate_parallel_scripts.sh
+                    bash ./mr_druggable_genome_dt/shell/07generate_parallel_scripts.sh
             done < discovery_outcomes.txt
 
     done < outcomes.txt
@@ -76,7 +76,7 @@ while read EXPOSURE_DATA; do
     while read OUTCOME; do
         export EXPOSURE_DATA=${EXPOSURE_DATA}
         export OUTCOME=${OUTCOME}
-        nohup bash ./mr_druggable_genome_pd/shell/run_liberal_scripts_all_nohup.sh &> ./mr_druggable_genome_pd/shell/nohup_run_liberal_scripts_all.log &
+        nohup bash ./mr_druggable_genome_dt/shell/run_liberal_scripts_all_nohup.sh &> ./mr_druggable_genome_dt/shell/nohup_run_liberal_scripts_all.log &
     done < outcomes.txt
 done < exposure_data.txt
 
@@ -84,7 +84,7 @@ done < exposure_data.txt
 
 7. Remove genes that throw errors. Note: you may need to rerun this step a few times until all genes that cause an error are removed.
 ```bash
-nohup bash ./mr_druggable_genome_pd/shell/run_liberal_scripts_failed_nohup.sh &> ./mr_druggable_genome_pd/shell/nohup_run_liberal_scripts_failed.log &
+nohup bash ./mr_druggable_genome_dt/shell/run_liberal_scripts_failed_nohup.sh &> ./mr_druggable_genome_dt/shell/nohup_run_liberal_scripts_failed.log &
 ```
 
 8. For each exposure-data-outcome combination, put all the results into one results file.
@@ -94,7 +94,7 @@ while read EXPOSURE_DATA; do
         export EXPOSURE_DATA=${EXPOSURE_DATA}
         export OUTCOME=${OUTCOME}
         cd ./${EXPOSURE_DATA}_${OUTCOME}/results
-        nohup Rscript ../../mr_druggable_genome_pd/R/combine_results_liberal_r2_0.2.R &> ../../${EXPOSURE_DATA}_${OUTCOME}/nohup_combine_results_liberal_r2_0.2_${EXPOSURE_DATA}_${OUTCOME}.log &
+        nohup Rscript ../../mr_druggable_genome_dt/R/combine_results_liberal_r2_0.2.R &> ../../${EXPOSURE_DATA}_${OUTCOME}/nohup_combine_results_liberal_r2_0.2_${EXPOSURE_DATA}_${OUTCOME}.log &
         cd ../..
     done < outcomes.txt
 done < exposure_data.txt
@@ -151,7 +151,7 @@ echo "" > discovery_outcomes.txt
 
 11. Prepare the data for the Mendelian randomization analysis. Note: if you are using your own GWAS data you will need to edit these files and create appropriate `read_exposure_data` and `read_outcome_data` files
 ```bash
-bash ./mr_druggable_genome_pd/shell/06data_prep.sh
+bash ./mr_druggable_genome_dt/shell/06data_prep.sh
 ```
 
 12. Generate scripts that can be run in parallel
@@ -166,7 +166,7 @@ while read EXPOSURE_DATA; do
 
             while read DISCOVERY_OUTCOME; do
                     export DISCOVERY_OUTCOME=${DISCOVERY_OUTCOME}
-                    bash ./mr_druggable_genome_pd/shell/07generate_parallel_scripts.sh
+                    bash ./mr_druggable_genome_dt/shell/07generate_parallel_scripts.sh
             done < discovery_outcomes.txt
 
     done < outcomes.txt
@@ -182,7 +182,7 @@ while read EXPOSURE_DATA; do
     while read OUTCOME; do
         export EXPOSURE_DATA=${EXPOSURE_DATA}
         export OUTCOME=${OUTCOME}
-        nohup bash ./mr_druggable_genome_pd/shell/run_liberal_scripts_all_nohup.sh &> ./mr_druggable_genome_pd/shell/nohup_run_liberal_scripts_all.log &
+        nohup bash ./mr_druggable_genome_dt/shell/run_liberal_scripts_all_nohup.sh &> ./mr_druggable_genome_dt/shell/nohup_run_liberal_scripts_all.log &
     done < outcomes.txt
 done < exposure_data.txt
 
@@ -190,7 +190,7 @@ done < exposure_data.txt
 
 14. Remove genes that throw errors. Note: you may need to rerun this step a few times until all genes that cause an error are removed.
 ```bash
-nohup bash ./mr_druggable_genome_pd/shell/run_liberal_scripts_failed_nohup.sh &> ./mr_druggable_genome_pd/shell/nohup_run_liberal_scripts_failed.log &
+nohup bash ./mr_druggable_genome_dt/shell/run_liberal_scripts_failed_nohup.sh &> ./mr_druggable_genome_dt/shell/nohup_run_liberal_scripts_failed.log &
 
 15. For each exposure-data-outcome combination, put all the results into one results file.
 ```bash
@@ -199,7 +199,7 @@ while read EXPOSURE_DATA; do
         export EXPOSURE_DATA=${EXPOSURE_DATA}
         export OUTCOME=${OUTCOME}
         cd ./${EXPOSURE_DATA}_${OUTCOME}/results
-        nohup Rscript ../../mr_druggable_genome_pd/R/combine_results_liberal_r2_0.2.R &> ../../${EXPOSURE_DATA}_${OUTCOME}/nohup_combine_results_liberal_r2_0.2_${EXPOSURE_DATA}_${OUTCOME}.log &
+        nohup Rscript ../../mr_druggable_genome_dt/R/combine_results_liberal_r2_0.2.R &> ../../${EXPOSURE_DATA}_${OUTCOME}/nohup_combine_results_liberal_r2_0.2_${EXPOSURE_DATA}_${OUTCOME}.log &
         cd ../..
     done < outcomes.txt
 done < exposure_data.txt
@@ -221,26 +221,26 @@ done < exposure_data.txt
 
 mkdir full_results
 
-bash ./mr_druggable_genome_pd/shell/final_results_report.sh
+bash ./mr_druggable_genome_dt/shell/final_results_report.sh
 
-Rscript ./mr_druggable_genome_pd/R/combine_dat_steiger_pQTL.R
+Rscript ./mr_druggable_genome_dt/R/combine_dat_steiger_pQTL.R
 
-Rscript ./mr_druggable_genome_pd/R/format_supplement_pQTL.R
-
-
-
-bash ./mr_druggable_genome_pd/shell/final_results_report.sh
-
-bash ./mr_druggable_genome_pd/shell/final_results_report.sh
-
-bash ./mr_druggable_genome_pd/shell/final_results_report.sh
+Rscript ./mr_druggable_genome_dt/R/format_supplement_pQTL.R
 
 
 
-Rscript ./mr_druggable_genome_pd/R/combine_dat_steiger.R
+bash ./mr_druggable_genome_dt/shell/final_results_report.sh
+
+bash ./mr_druggable_genome_dt/shell/final_results_report.sh
+
+bash ./mr_druggable_genome_dt/shell/final_results_report.sh
 
 
-Rscript ./mr_druggable_genome_pd/R/format_supplement.R
+
+Rscript ./mr_druggable_genome_dt/R/combine_dat_steiger.R
+
+
+Rscript ./mr_druggable_genome_dt/R/format_supplement.R
 
 
 
@@ -255,7 +255,7 @@ while read OUTCOME; do
 
     while read DISCOVERY_OUTCOME; do
         export DISCOVERY_OUTCOME=${DISCOVERY_OUTCOME}
-        nohup Rscript ./mr_druggable_genome_pd/R/check_direction_of_effect.R &> full_results/metric_check_direction_of_effect_${OUTCOME}_${DISCOVERY_OUTCOME}.log
+        nohup Rscript ./mr_druggable_genome_dt/R/check_direction_of_effect.R &> full_results/metric_check_direction_of_effect_${OUTCOME}_${DISCOVERY_OUTCOME}.log
     done < discovery_outcomes.txt
 
     
@@ -268,7 +268,7 @@ done < outcomes.txt
 ```bash
 mkdir figures
 
-Rscript ./mr_druggable_genome_pd/R/make_forest_plot.R
+Rscript ./mr_druggable_genome_dt/R/make_forest_plot.R
 ```
 
 20. Colocalization analysis.
@@ -276,9 +276,9 @@ Rscript ./mr_druggable_genome_pd/R/make_forest_plot.R
 ```bash
 mkdir coloc
 
-Rscript ./mr_druggable_genome_pd/R/data_prep_coloc.R
+Rscript ./mr_druggable_genome_dt/R/data_prep_coloc.R
 
-Rscript ./mr_druggable_genome_pd/R/run_coloc.R
+Rscript ./mr_druggable_genome_dt/R/run_coloc.R
 
 
 ```
