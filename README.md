@@ -1,7 +1,10 @@
 # MR_druggable_genome_dentaltraits
-Adapted from the original publication from a Mendelian randomization analysis for the druggable genome in Parkinson's disease.(https://www.nature.com/articles/s41467-021-26280-1).
+Reference:
+1. A Mendelian randomization analysis for the druggable genome in Parkinson's disease.(https://www.nature.com/articles/s41467-021-26280-1)
+2. A Mendelian randomization analysis for the druggable genome in AA. (https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(22)00381-4/fulltext)
+3. Introduction to forestploter. (https://cran.r-project.org/web/packages/forestploter/vignettes/forestploter-intro.html)
 
-20231216 Update: The manuscript is currently being prepared for submission to a peer-reviewed journal. Upon formal publication, the scripts will be made available to the readers.
+20231218 Update: The manuscript is currently being submitted to a peer-reviewed journal. Upon formal publication, the scripts will be made available to the readers.
 
 ## Pipeline Overview
 
