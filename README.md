@@ -194,6 +194,7 @@ done < exposure_data.txt
 14. Remove genes that throw errors. Note: you may need to rerun this step a few times until all genes that cause an error are removed.
 ```bash
 nohup bash ./mr_druggable_genome_dt/shell/run_liberal_scripts_failed_nohup.sh &> ./mr_druggable_genome_dt/shell/nohup_run_liberal_scripts_failed.log &
+```
 
 15. For each exposure-data-outcome combination, put all the results into one results file.
 ```bash
