@@ -4,7 +4,7 @@ Reference:
 2. A Mendelian randomization analysis for the druggable genome in AA. (https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(22)00381-4/fulltext)
 3. Introduction to forestploter. (https://cran.r-project.org/web/packages/forestploter/vignettes/forestploter-intro.html)
 
-20231218 Update: The manuscript is currently being submitted to a peer-reviewed journal. Upon formal publication, the scripts will be made available to the readers.
+20240822 Update: The manuscript has been formally accepted by the Journal of Dental Research. The scripts will be accessible to readers upon formal publication.
 
 ## Pipeline Overview
 
