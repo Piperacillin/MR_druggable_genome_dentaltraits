@@ -1,10 +1,11 @@
 # MR_druggable_genome_dentaltraits
-Reference:
+Please cite:
 1. A Mendelian randomization analysis for the druggable genome in Parkinson's disease.(https://www.nature.com/articles/s41467-021-26280-1)
 2. A Mendelian randomization analysis for the druggable genome in AA. (https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(22)00381-4/fulltext)
 3. Introduction to forestploter. (https://cran.r-project.org/web/packages/forestploter/vignettes/forestploter-intro.html)
+4. Genetically Supported Drug Targets and Dental Traits: A Mendelian Randomization Study. (https://doi.org/10.1177/00220345241272045)
 
-20240822 Update: The manuscript has been formally accepted by the Journal of Dental Research. The scripts will be accessible to readers upon formal publication.
+Acknowledgments: Our current project has been formally published online in JDR (2024-10-06). We acknowledge the original contributors of the QTL working pipeline readapted in our study. Kindly reference the articles mentioned above.
 
 ## Pipeline Overview
 
