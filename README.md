@@ -17,8 +17,7 @@ bash ./mr_druggable_genome_dt/shell/installing_tools.sh
 ```
 
 
-2. Download/upload your QTL and disease GWAS data. eQTL data from  eQTLGen consortia can be accessed as shown below. If you are looking for a comprehensive list of pQTL data available, check out [this very helpful blog post](http://www.metabolomix.com/a-table-of-all-published-gwas-with-proteomics/).
-
+2. Download/upload QTL and disease GWAS data. 
 ```bash
 bash ./mr_druggable_genome_dt/shell/eqtl_data_download.sh
 ```
